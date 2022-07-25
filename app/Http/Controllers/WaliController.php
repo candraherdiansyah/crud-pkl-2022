@@ -93,7 +93,7 @@ class WaliController extends Controller
         $wali->deleteImage();
         $wali->delete();
         return redirect()->route('wali.index')
-            ->with('success', 'Data berhasil dibuat!');
+            ->with('success', 'Data berhasil dihapus!');
 
     }
 }

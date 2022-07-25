@@ -34,6 +34,5 @@ class Wali extends Model
         if ($this->foto && file_exists(public_path('images/wali/' . $this->foto))) {
             return unlink(public_path('images/wali/' . $this->foto));
         }
-
     }
 }

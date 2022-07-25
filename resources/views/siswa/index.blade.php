@@ -20,10 +20,7 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Nomor Induk Siswa</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Agama</th>
-                                        <th>Tanggal Lahir</th>
-                                        <th>Alamat</th>
+                                        <th>Nama Guru</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -34,10 +31,7 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->nama }}</td>
                                             <td>{{ $data->nis }}</td>
-                                            <td>{{ $data->jenis_kelamin }}</td>
-                                            <td>{{ $data->agama }}</td>
-                                            <td>{{ date('d M Y', strtotime($data->tgl_lahir)) }}</td>
-                                            <td>{{ $data->alamat }}</td>
+                                            <td>{{ $data->guru->nama }}</td>
                                             <td>
                                                 <form action="{{ route('siswa.destroy', $data->id) }}" method="post">
                                                     @csrf

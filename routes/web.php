@@ -1,7 +1,7 @@
 <?php
 
 // panggil semua controller yang digunakan
-use App\Http\Controllers\PembelianController;
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\WaliController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         return view('admin.index');
     });
     Route::resource('siswa', SiswaController::class);
-    Route::resource('pembeli', PembelianController::class);
     Route::resource('wali', WaliController::class);
+    Route::resource('guru', GuruController::class);
+
 });

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -59,7 +59,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Agama</label>
-                                <select class="form-select @error('jenis_kelamin') is-invalid @enderror" name="agama">
+                                <select class="form-control" name="agama">
                                     <option selected>Pilih Salah Satu</option>
                                     <option value="Islam" {{ $siswa->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
                                     <option value="Kristen" {{ $siswa->agama == 'Kristen' ? 'selected' : '' }}>Kristen
@@ -90,6 +90,22 @@
                                 <label class="form-label">Alamat</label>
                                 <textarea class="form-control  @error('alamat') is-invalid @enderror" name="alamat">{{ $siswa->alamat }}</textarea>
                                 @error('alamat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Pilih Data Guru</label>
+                                <select name="id_guru" class="form-control @error('id_guru') is-invalid @enderror"
+                                    id="">
+                                    @foreach ($guru as $data)
+                                        <option value="{{ $data->id }}"
+                                            {{ $siswa->id_guru == $data->id ? 'selected' : '' }}>{{ $data->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('id_guru')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
