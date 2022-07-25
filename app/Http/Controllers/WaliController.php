@@ -26,7 +26,7 @@ class WaliController extends Controller
     public function create()
     {
         $siswa = Siswa::all();
-        return view('wali.index', compact('siswa'));
+        return view('wali.create', compact('siswa'));
     }
 
     public function store(Request $request)
@@ -69,7 +69,7 @@ class WaliController extends Controller
         $validated = $request->validate([
             'nama' => 'required',
             'id_siswa' => 'required',
-            'foto' => 'required|image|max:2048',
+            'foto' => 'image|max:2048',
         ]);
 
         $wali = Wali::findOrFail($id);
@@ -91,7 +91,7 @@ class WaliController extends Controller
     {
         $wali = Wali::findOrFail($id);
         $wali->deleteImage();
-        $article->delete();
+        $wali->delete();
         return redirect()->route('wali.index')
             ->with('success', 'Data berhasil dibuat!');
 
